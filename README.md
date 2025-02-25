@@ -1,155 +1,330 @@
-# Lemeye
+# Lemeye 🗺️
 
-Lemeye is a sophisticated platform designed to track and visualize real-time events and incidents that occur in Turkey, as well as regional issues like those in Syria. It focuses on critical events such as military movements, virus outbreaks, protests, humanitarian crises, and more. The goal is to provide an interactive map that offers a detailed, dynamic view of real-time and historical event data.
+<div align="center">
 
-## Project Goals
-1. **Real-time Event Tracking**: Track various types of events like military activities, virus spread, protests, humanitarian efforts, and security incidents in Turkey and neighboring regions like Syria.
-   
-2. **Interactive Map**: The key component is the interactive map, allowing users to visualize events in a geospatial context, including event paths, heatmaps, and real-time updates.
+![Lemeye Logo](https://via.placeholder.com/150x150.png?text=Lemeye)
 
-3. **User Engagement**: Includes interactive tools like time sliders, event filters, detailed popups, event timelines, and weather overlays to engage users and allow deep analysis of events.
+**Real-time Event Tracking & Visualization Platform**
 
-4. **Data Management**: Handles large amounts of real-time data and visualizes it in an easy-to-understand format from sources like official ministries, news outlets, live updates, and other relevant authorities.
+[![GitHub stars](https://img.shields.io/github/stars/sonyagit/lemeye?style=social)](https://github.com/sonyagit/lemeye/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/sonyagit/lemeye?style=social)](https://github.com/sonyagit/lemeye/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/sonyagit/lemeye)](https://github.com/sonyagit/lemeye/issues)
+[![GitHub license](https://img.shields.io/github/license/sonyagit/lemeye)](https://github.com/sonyagit/lemeye/blob/main/LICENSE)
 
-5. **Visualizing Complex Data**: Uses rich, visual indicators like path lines for aircraft, heatmaps for virus spread, progress bars for ongoing events, and dynamic event markers to provide an enriched user experience.
+[English](#english-version-) | [Türkçe](#türkçe-sürüm-) | [日本語](#) | [한국어](#) | [Русский](#) | [العربية](#)
 
-## Core Features
-1. **Event Types**:
-   - **Military**: Aircraft movements, ground forces, defense operations.
-   - **Virus Outbreaks**: Spread of viruses, infection zones, containment areas.
-   - **Protests**: Locations of public gatherings, government responses, severity.
-   - **Security**: Terrorist attacks, bombings, law enforcement activity.
-   - **Humanitarian**: Refugee movements, aid distribution, crises.
-   - **Infrastructure**: Natural disasters, building collapses, power outages.
-
-2. **Data Sources**:
-   - **Ministry of Defense** (official military updates)
-   - **TRT World** (news reports)
-   - **AFAD** (disaster and emergency management)
-   - **Health Ministry** (virus tracking)
-
-3. **Map Interactivity**:
-   - **Markers** to indicate event locations.
-   - **Event paths** for military or virus spread (e.g., aircraft flight paths or virus progression).
-   - **Heatmaps** to visualize intensity (e.g., virus spread, security threats).
-   - **Interactive details** when clicking on events (status updates, descriptions, news, etc.).
-   - **Timelines** and **time sliders** to explore how events unfold over time.
-   - **Weather data** overlaid on the map to show how weather conditions may affect the event.
-
-4. **User Interface**:
-   - **Modern UI/UX** design with a focus on clarity and user engagement.
-   - **Event Filter**: Ability to filter events by type, severity, and location.
-   - **Real-Time Updates**: Continuous updates to show ongoing events.
-   - **Event Dashboard**: A high-level view of the most critical events, with detailed visualizations.
-
-## Development Plan
-The project will follow a modular approach, allowing multiple components to be developed independently while maintaining a cohesive design. Here's a broad view of the development process:
-
-### 1. Frontend Development
-- **Tools/Tech**: 
-   - **React.js** for the component-based frontend.
-   - **Next.js** for server-side rendering and static site generation.
-   - **Tailwind CSS** for styling.
-   - **Map libraries**: **Leaflet.js** or **Mapbox** for building interactive maps.
-
-- **Tasks**:
-   - Build interactive maps with event markers and dynamic paths.
-   - Implement event filters and timeline features.
-   - Add real-time updates from the server.
-   - Develop UI components for event details, notifications, and alerts.
-
-### 2. Backend Development
-- **Tools/Tech**:
-   - **Node.js** with **Express.js** for creating an API.
-   - **MongoDB** or **PostgreSQL** for storing event data.
-   - **Socket.io** for real-time updates.
-   - **Weather APIs** to fetch real-time weather data for affected regions.
-
-- **Tasks**:
-   - Develop an API to manage event data.
-   - Integrate external data sources using APIs.
-   - Implement real-time data handling.
-   - Set up data storage and management for historical event data.
-
-### 3. Data Management
-- **Tasks**:
-   - Event Data Collection from official sources and news organizations in real-time.
-   - Ensure that data is updated frequently.
-   - Handle large amounts of data and ensure it’s efficiently processed and stored.
-
-## Target Audience
-- **Government Agencies**: Emergency management, military, and health agencies for situational awareness and planning.
-- **NGOs & Humanitarian Organizations**: To monitor crisis areas and deploy resources effectively.
-- **Journalists & News Agencies**: To track ongoing events and generate real-time news reports.
-- **General Public**: People who want to stay informed about real-time events, safety updates, and ongoing crises.
-
-## How to Contribute
-Contributions are welcome from developers all around the world. Here's how you can get involved:
-
-1. **Fork the Repository**: Start by forking the repository to your GitHub account.
-2. **Clone the Repository**: Clone the forked repository to your local machine.
-   ```bash
-   git clone https://github.com/sonyagit/lemeye.git
-   ```
-3. **Create a Branch**: Create a new branch for your feature or bug fix.
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-4. **Make Changes**: Implement your feature or bug fix.
-5. **Commit Changes**: Commit your changes with a clear message.
-   ```bash
-   git commit -m "Add feature: your-feature-name"
-   ```
-6. **Push Changes**: Push your changes to your forked repository.
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-7. **Create a Pull Request**: Open a pull request to the main repository.
-
-For detailed guidelines, please read our [Contributing Guidelines](CONTRIBUTING.md).
-
-## Why Contribute?
-Joining the Sonya Foundation community means being part of a vibrant, diverse group of developers who are passionate about using technology to make a difference. By contributing to the Lemeye project, you will:
-
-- **Make an Impact**: Help create a tool that provides critical insights into real-time events affecting Turkey and the region.
-- **Collaborate Globally**: Work with developers from around the world and learn from their expertise.
-- **Enhance Your Skills**: Gain experience in cutting-edge technologies like React.js, Node.js, and real-time data processing.
-- **Build Your Portfolio**: Add a significant open-source project to your portfolio, showcasing your contributions and skills.
-
-## Tech Stack Summary
-- **Frontend**: React.js, Next.js, Tailwind CSS, Leaflet.js/Mapbox, TypeScript.
-- **Backend**: Node.js, Express.js, MongoDB/PostgreSQL, Socket.io, APIs for weather and external event data.
-- **Other Tools**: Git/GitHub for version control, Postman for API testing, Jest for testing.
-
-## Screenshots
-
-### Ankara Students Square
-![Ankara Students Square](screenshots/ankara-students-square.jpg)
-
-### Ankara Students
-![Ankara Students](screenshots/ankara-students.jpg)
-
-### Eskisehir Virus Square
-![Eskisehir Virus Square](screenshots/eskisehir-virus-square.jpg)
-
-### Eskisehir Virus
-![Eskisehir Virus](screenshots/eskisehir-virus.jpg)
-
-### Istanbul Turkiye
-![Istanbul Turkiye](screenshots/istanbul-turkiye.jpg)
-
-### Settings Sources
-![Settings Sources](screenshots/settings-sources.jpg)
-
-## Conclusion
-The Lemeye project is an ambitious and dynamic platform that will allow users to track a wide range of events in real-time. It combines advanced mapping technology with real-time data processing to provide critical insights into military operations, health crises, and other events affecting Turkey and the region.
-
-With the use of interactive features like heatmaps, real-time updates, and detailed event markers, this project aims to be a powerful tool for both public and official use.
-
-For more information, please contact us at [sonya.foundation@protonmail.com](mailto:sonya.foundation@protonmail.com).
+</div>
 
 ---
 
-Project developed by Turkish and international communities.
+## 🇺🇸 English Version 
 
-[Join Sonya Foundation](https://forms.office.com/r/91yXKuHasm) | [LinkedIn](https://www.linkedin.com/company/sonya-foundation) | [Repository](https://github.com/sonyagit/lemeye)
+### 📌 Overview 
+Lemeye is an advanced real-time event tracking and visualization platform designed to monitor critical events across Turkey and neighboring regions such as Syria. The platform transforms complex data from various sources into an intuitive, interactive map interface, allowing users to track military operations, disease outbreaks, protests, humanitarian crises, and other significant events as they unfold.
+
+<div align="center">
+
+### 🎬 Quick Demo
+
+[![Lemeye Demo](https://via.placeholder.com/600x338.png?text=Lemeye+Demo)](https://youtube.com/watch?v=demo)
+
+</div>
+
+### 🎯 Mission
+To provide governments, NGOs, journalists, and the public with real-time, accurate situational awareness through advanced geospatial visualization of critical events.
+
+### 🔍 Key Features
+
+<table>
+  <tr>
+    <td width="33%" align="center"><b>🌐 Interactive Map</b><br>Dynamic visualization with event markers, paths, and heatmaps</td>
+    <td width="33%" align="center"><b>⏱️ Real-time Updates</b><br>Live data from official sources, constantly refreshed</td>
+    <td width="33%" align="center"><b>🔄 Event Timeline</b><br>Trace how events evolve with time sliders and playback</td>
+  </tr>
+  <tr>
+    <td width="33%" align="center"><b>🔍 Advanced Filtering</b><br>Sort by event type, severity, location, and time</td>
+    <td width="33%" align="center"><b>🌤️ Environmental Context</b><br>Weather data overlays to understand conditions</td>
+    <td width="33%" align="center"><b>📊 Data Analysis</b><br>Comprehensive dashboards for event statistics</td>
+  </tr>
+</table>
+
+### 📋 Event Categories
+
+- **🛡️ Military**: Track aircraft movements, troop deployments, and defense operations
+- **🦠 Public Health**: Monitor virus outbreaks, containment zones, and infection spread
+- **👥 Civil Unrest**: Follow protests, demonstrations, and government responses
+- **🚨 Security**: Track terrorist incidents, law enforcement activities, and threats
+- **🤝 Humanitarian**: Monitor refugee movements, aid distribution, and crises
+- **🏗️ Infrastructure**: Track natural disasters, structural failures, and recovery efforts
+
+### 📷 Platform Showcase
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="screenshots/ankara-students-square.jpg" alt="Ankara Students Square" width="100%"/></td>
+      <td><img src="screenshots/ankara-students.jpg" alt="Ankara Students" width="100%"/></td>
+    </tr>
+    <tr>
+      <td><img src="screenshots/eskisehir-virus-square.jpg" alt="Eskisehir Virus Square" width="100%"/></td>
+      <td><img src="screenshots/eskisehir-virus.jpg" alt="Eskisehir Virus" width="100%"/></td>
+    </tr>
+    <tr>
+      <td><img src="screenshots/istanbul-turkiye.jpg" alt="Istanbul Turkiye" width="100%"/></td>
+      <td><img src="screenshots/settings-sources.jpg" alt="Settings Sources" width="100%"/></td>
+    </tr>
+  </table>
+</div>
+
+### 🛠️ Technology Stack
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="25%"><b>Frontend</b></td>
+      <td>
+        <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
+        <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"/>
+        <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind"/>
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+      </td>
+    </tr>
+    <tr>
+      <td align="center"><b>Mapping</b></td>
+      <td>
+        <img src="https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=leaflet&logoColor=white" alt="Leaflet"/>
+        <img src="https://img.shields.io/badge/Mapbox-000000?style=for-the-badge&logo=mapbox&logoColor=white" alt="Mapbox"/>
+      </td>
+    </tr>
+    <tr>
+      <td align="center"><b>Backend</b></td>
+      <td>
+        <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
+        <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express"/>
+        <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
+        <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+        <img src="https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white" alt="Socket.io"/>
+      </td>
+    </tr>
+  </table>
+</div>
+
+### 👥 Target Audience
+
+- **🏛️ Government Agencies**: For emergency management and strategic planning
+- **🌍 NGOs & Humanitarian Organizations**: For crisis monitoring and resource deployment
+- **📰 Journalists & News Outlets**: For real-time reporting and verification
+- **👨‍👩‍👧‍👦 General Public**: For safety awareness and staying informed during critical events
+
+### 🚀 Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/sonyagit/lemeye.git
+
+# Navigate to project directory
+cd lemeye
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+### 🤝 How to Contribute
+
+We welcome contributions from developers worldwide! Follow these steps to contribute:
+
+1. **Fork the Repository**: Create your own copy of the project
+2. **Clone**: Download your fork to your local machine
+3. **Branch**: Create a new branch for your feature
+4. **Develop**: Make your changes and improvements
+5. **Test**: Ensure your code works as expected
+6. **Commit**: Save your changes with clear messages
+7. **Push**: Upload your changes to your fork
+8. **Pull Request**: Submit your changes for review
+
+See our detailed [Contributing Guidelines](CONTRIBUTING.md) for more information.
+
+### 💪 Why Contribute?
+
+- **🌟 Make an Impact**: Help create tools that provide critical insights during emergencies
+- **🌐 Global Collaboration**: Work with developers from diverse backgrounds
+- **📈 Skill Development**: Gain experience with cutting-edge technologies
+- **💼 Portfolio Building**: Add a meaningful open-source project to your resume
+
+### 📞 Contact & Connect
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/Email-sonya.foundation@protonmail.com-blue?style=for-the-badge&logo=protonmail&logoColor=white)](mailto:sonya.foundation@protonmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Sonya_Foundation-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/sonya-foundation)
+[![Join](https://img.shields.io/badge/Join-Sonya_Foundation-purple?style=for-the-badge)](https://forms.office.com/r/91yXKuHasm)
+
+</div>
+
+---
+
+## 🇹🇷 Türkçe Sürüm
+
+### 📌 Genel Bakış
+Lemeye, Türkiye ve Suriye gibi komşu bölgelerdeki kritik olayları izlemek için tasarlanmış gelişmiş bir gerçek zamanlı olay takip ve görselleştirme platformudur. Platform, çeşitli kaynaklardan gelen karmaşık verileri sezgisel, etkileşimli bir harita arayüzüne dönüştürerek, kullanıcıların askeri operasyonları, hastalık salgınlarını, protestoları, insani krizleri ve diğer önemli olayları gerçekleştikleri anda takip etmelerini sağlar.
+
+<div align="center">
+
+### 🎬 Hızlı Demo
+
+[![Lemeye Demo](https://via.placeholder.com/600x338.png?text=Lemeye+Demo)](https://youtube.com/watch?v=demo)
+
+</div>
+
+### 🎯 Misyon
+Hükümetlere, STK'lara, gazetecilere ve halka, kritik olayların gelişmiş coğrafi görselleştirmesi aracılığıyla gerçek zamanlı, doğru durumsal farkındalık sağlamak.
+
+### 🔍 Temel Özellikler
+
+<table>
+  <tr>
+    <td width="33%" align="center"><b>🌐 Etkileşimli Harita</b><br>Olay işaretçileri, yollar ve ısı haritalarıyla dinamik görselleştirme</td>
+    <td width="33%" align="center"><b>⏱️ Gerçek Zamanlı Güncellemeler</b><br>Resmi kaynaklardan sürekli yenilenen canlı veriler</td>
+    <td width="33%" align="center"><b>🔄 Olay Zaman Çizelgesi</b><br>Zaman kaydırıcıları ve oynatma özelliğiyle olayların nasıl geliştiğini izleyin</td>
+  </tr>
+  <tr>
+    <td width="33%" align="center"><b>🔍 Gelişmiş Filtreleme</b><br>Olay türü, şiddet, konum ve zamana göre sıralama</td>
+    <td width="33%" align="center"><b>🌤️ Çevresel Bağlam</b><br>Koşulları anlamak için hava durumu veri katmanları</td>
+    <td width="33%" align="center"><b>📊 Veri Analizi</b><br>Olay istatistikleri için kapsamlı gösterge panelleri</td>
+  </tr>
+</table>
+
+### 📋 Olay Kategorileri
+
+- **🛡️ Askeri**: Uçak hareketlerini, birlik konuşlandırmalarını ve savunma operasyonlarını takip edin
+- **🦠 Halk Sağlığı**: Virüs salgınlarını, karantina bölgelerini ve enfeksiyon yayılımını izleyin
+- **👥 Sivil Huzursuzluk**: Protestoları, gösterileri ve hükümet tepkilerini takip edin
+- **🚨 Güvenlik**: Terör olaylarını, kolluk kuvvetleri faaliyetlerini ve tehditleri izleyin
+- **🤝 İnsani Yardım**: Mülteci hareketlerini, yardım dağıtımını ve krizleri izleyin
+- **🏗️ Altyapı**: Doğal afetleri, yapısal hasarları ve iyileştirme çalışmalarını takip edin
+
+### 📷 Platform Görselleri
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="screenshots/ankara-students-square.jpg" alt="Ankara Öğrenciler Meydanı" width="100%"/></td>
+      <td><img src="screenshots/ankara-students.jpg" alt="Ankara Öğrenciler" width="100%"/></td>
+    </tr>
+    <tr>
+      <td><img src="screenshots/eskisehir-virus-square.jpg" alt="Eskişehir Virüs Meydanı" width="100%"/></td>
+      <td><img src="screenshots/eskisehir-virus.jpg" alt="Eskişehir Virüs" width="100%"/></td>
+    </tr>
+    <tr>
+      <td><img src="screenshots/istanbul-turkiye.jpg" alt="İstanbul Türkiye" width="100%"/></td>
+      <td><img src="screenshots/settings-sources.jpg" alt="Ayarlar Kaynakları" width="100%"/></td>
+    </tr>
+  </table>
+</div>
+
+### 🛠️ Teknoloji Yığını
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="25%"><b>Ön Uç</b></td>
+      <td>
+        <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React"/>
+        <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"/>
+        <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind"/>
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+      </td>
+    </tr>
+    <tr>
+      <td align="center"><b>Haritalama</b></td>
+      <td>
+        <img src="https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=leaflet&logoColor=white" alt="Leaflet"/>
+        <img src="https://img.shields.io/badge/Mapbox-000000?style=for-the-badge&logo=mapbox&logoColor=white" alt="Mapbox"/>
+      </td>
+    </tr>
+    <tr>
+      <td align="center"><b>Arka Uç</b></td>
+      <td>
+        <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js"/>
+        <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" alt="Express"/>
+        <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB"/>
+        <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
+        <img src="https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white" alt="Socket.io"/>
+      </td>
+    </tr>
+  </table>
+</div>
+
+### 👥 Hedef Kitle
+
+- **🏛️ Devlet Kurumları**: Acil durum yönetimi ve stratejik planlama için
+- **🌍 STK'lar ve İnsani Yardım Kuruluşları**: Kriz izleme ve kaynak dağıtımı için
+- **📰 Gazeteciler ve Haber Kuruluşları**: Gerçek zamanlı raporlama ve doğrulama için
+- **👨‍👩‍👧‍👦 Genel Halk**: Kritik olaylar sırasında güvenlik farkındalığı ve bilgi edinme için
+
+### 🚀 Başlarken
+
+```bash
+# Depoyu klonlayın
+git clone https://github.com/sonyagit/lemeye.git
+
+# Proje dizinine gidin
+cd lemeye
+
+# Bağımlılıkları yükleyin
+npm install
+
+# Geliştirme sunucusunu başlatın
+npm run dev
+
+# Üretim için derleme yapın
+npm run build
+```
+
+### 🤝 Nasıl Katkıda Bulunulur
+
+Dünya genelindeki geliştiricilerden gelen katkıları memnuniyetle karşılıyoruz! Katkıda bulunmak için şu adımları izleyin:
+
+1. **Depoyu Çatallayın**: Projenin kendi kopyanızı oluşturun
+2. **Klonlayın**: Çatalınızı yerel makinenize indirin
+3. **Dal Oluşturun**: Özelliğiniz için yeni bir dal oluşturun
+4. **Geliştirin**: Değişikliklerinizi ve iyileştirmelerinizi yapın
+5. **Test Edin**: Kodunuzun beklendiği gibi çalıştığından emin olun
+6. **Commit Yapın**: Değişikliklerinizi açık mesajlarla kaydedin
+7. **Push Yapın**: Değişikliklerinizi çatalınıza yükleyin
+8. **Pull Request Gönderin**: Değişikliklerinizi incelenmek üzere gönderin
+
+Daha fazla bilgi için ayrıntılı [Katkıda Bulunma Kılavuzumuza](CONTRIBUTING.md) bakın.
+
+### 💪 Neden Katkıda Bulunmalı?
+
+- **🌟 Etki Yaratın**: Acil durumlarda kritik bilgiler sağlayan araçlar oluşturmaya yardımcı olun
+- **🌐 Küresel İşbirliği**: Farklı geçmişlere sahip geliştiricilerle çalışın
+- **📈 Beceri Geliştirme**: Son teknoloji teknolojilerle deneyim kazanın
+- **💼 Portföy Oluşturma**: Özgeçmişinize anlamlı bir açık kaynak projesi ekleyin
+
+### 📞 İletişim ve Bağlantı
+
+<div align="center">
+
+[![Email](https://img.shields.io/badge/Email-sonya.foundation@protonmail.com-blue?style=for-the-badge&logo=protonmail&logoColor=white)](mailto:sonya.foundation@protonmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Sonya_Foundation-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/sonya-foundation)
+[![Katılın](https://img.shields.io/badge/Katılın-Sonya_Foundation-purple?style=for-the-badge)](https://forms.office.com/r/91yXKuHasm)
+
+</div>
+
+---
+
+<div align="center">
+
+**Türk ve uluslararası topluluklar tarafından geliştirilen proje.**
+
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sonyagit/lemeye)
+
+</div>
