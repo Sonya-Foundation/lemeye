@@ -80,7 +80,8 @@ This license will terminate automatically if you fail to comply with any of the 
 
 ## GOVERNING LAW
 
-This license shall be governed by and construed in accordance with the laws of [JURISDICTION], without regard to its conflict of law provisions.
+This license shall be governed by and construed in accordance with the laws of Turkey, without regard to its conflict of law provisions.
+This section now properly indicates that Turkish law will govern the license and any legal disputes that might arise regarding its interpretation or enforcement.
 
 ## SEVERABILITY
 
