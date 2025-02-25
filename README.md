@@ -9,7 +9,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/sonyagit/lemeye?style=social)](https://github.com/sonyagit/lemeye/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/sonyagit/lemeye?style=social)](https://github.com/sonyagit/lemeye/network/members)
 [![GitHub issues](https://img.shields.io/github/issues/sonyagit/lemeye)](https://github.com/sonyagit/lemeye/issues)
-[![GitHub license](https://img.shields.io/github/license/sonyagit/lemeye)](https://github.com/sonyagit/lemeye/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/sonyagit/lemeye)](https://github.com/sonyagit/lemeye/blob/master/LICENSE)
 
 [English](#english-version-) | [Türkçe](#türkçe-sürüm-) | [日本語](#) | [한국어](#) | [Русский](#) | [العربية](#)
 
