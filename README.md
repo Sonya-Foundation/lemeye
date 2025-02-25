@@ -17,7 +17,7 @@
 
 ---
 
-## 🇺🇸 English Version 
+## 🇬🇧 English Version 
 
 ### 📌 Overview 
 Lemeye is an advanced real-time event tracking and visualization platform designed to monitor critical events across Turkey and neighboring regions such as Syria. The platform transforms complex data from various sources into an intuitive, interactive map interface, allowing users to track military operations, disease outbreaks, protests, humanitarian crises, and other significant events as they unfold.
