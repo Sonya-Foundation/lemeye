@@ -1,0 +1,1817 @@
+import type { Event } from "@/types"
+
+export const SYRIA_BORDER_COORDINATES: [number, number][] = [
+  [36.834015, 36.81897],
+  [36.898987, 36.64497],
+  [36.551285, 36.1597],
+  [36.448059, 35.998535],
+  [36.405487, 35.935867],
+  [36.190643, 35.8218],
+  [36.065674, 35.950264],
+  [35.932465, 35.928677],
+  [35.927658, 35.927658],
+  [35.839767, 35.916825],
+  [35.93829, 35.923481],
+  [36.032465, 35.928677],
+  [36.127658, 35.927658],
+  [36.239767, 35.916825],
+]
+
+// Original example events
+export const EXAMPLE_EVENTS: Event[] = [
+  {
+    id: "001",
+    title: "Military Aircraft Movement",
+    location: "Istanbul Airspace",
+    date: "2025-02-25T12:00:00Z",
+    type: "military",
+    description: "Military aircraft conducting reconnaissance mission from Ankara to Istanbul",
+    status: "active",
+    severity: "high",
+    coordinates: [41.0082, 28.9784],
+    movement: {
+      type: "aircraft",
+      path: [
+        [39.9334, 32.8597], // Ankara
+        [40.4, 31.0],
+        [40.8, 29.5],
+        [41.0082, 28.9784], // Istanbul
+      ],
+      speed: "900 km/h",
+      direction: "northwest",
+    },
+    affectedZone: {
+      type: "circle",
+      coordinates: [[41.0082, 28.9784]],
+      radius: 25000,
+      color: "rgba(255, 0, 0, 0.2)",
+    },
+    sources: [
+      {
+        id: "m1",
+        type: "official",
+        name: "Air Force Command",
+        url: "https://example.com/airforce",
+        icon: "✈️",
+        reliability: "high",
+        lastUpdate: "2025-02-25T12:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T12:00:00Z",
+        content: "Aircraft departed from Ankara",
+        source: "Air Force Command",
+      },
+      {
+        timestamp: "2025-02-25T12:30:00Z",
+        content: "Aircraft approaching Istanbul airspace",
+        source: "Air Force Command",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Istanbul",
+        distance: 0,
+        direction: "current",
+      },
+      {
+        name: "Izmit",
+        distance: 95,
+        direction: "southeast",
+      },
+    ],
+    weather: {
+      temperature: 18,
+      windSpeed: 15,
+      windDirection: "northeast",
+      condition: "clear",
+    },
+    tags: ["military", "aircraft", "reconnaissance"],
+    verified: true,
+  },
+  {
+    id: "002",
+    title: "Virus Outbreak",
+    location: "Ankara, Turkey",
+    date: "2025-02-24T08:00:00Z",
+    type: "virus",
+    description: "Rapid spread of new virus strain in Ankara metropolitan area",
+    status: "critical",
+    severity: "critical",
+    coordinates: [39.9334, 32.8597],
+    movement: {
+      type: "virus",
+      spread: [
+        {
+          time: "2025-02-24T08:00:00Z",
+          affected_area: "10%",
+        },
+        {
+          time: "2025-02-24T14:00:00Z",
+          affected_area: "30%",
+        },
+        {
+          time: "2025-02-25T08:00:00Z",
+          affected_area: "50%",
+        },
+      ],
+    },
+    affectedZone: {
+      type: "heatmap",
+      coordinates: [
+        [39.9334, 32.8597],
+        [39.95, 32.87],
+        [39.92, 32.84],
+      ],
+      color: "rgba(255, 0, 0, 0.5)",
+      intensity: 0.8,
+    },
+    sources: [
+      {
+        id: "v1",
+        type: "official",
+        name: "Ministry of Health",
+        url: "https://example.com/health",
+        icon: "🏥",
+        reliability: "high",
+        lastUpdate: "2025-02-25T08:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-24T08:00:00Z",
+        content: "Initial virus cases detected",
+        source: "Ministry of Health",
+      },
+      {
+        timestamp: "2025-02-25T08:00:00Z",
+        content: "Virus spread reaches 50% of metropolitan area",
+        source: "Ministry of Health",
+      },
+    ],
+    casualties: {
+      dead: 0,
+      injured: 245,
+      missing: 0,
+    },
+    nearestCities: [
+      {
+        name: "Ankara",
+        distance: 0,
+        direction: "current",
+      },
+      {
+        name: "Eskişehir",
+        distance: 233,
+        direction: "west",
+      },
+    ],
+    tags: ["health", "virus", "outbreak"],
+    verified: true,
+  },
+  {
+    id: "003",
+    title: "Protest in Istanbul",
+    location: "Istanbul, Turkey",
+    date: "2025-02-24T18:00:00Z",
+    type: "protest",
+    description: "Massive protests erupt in Istanbul against government policies",
+    status: "active",
+    severity: "medium",
+    coordinates: [41.0082, 28.9784],
+    movement: {
+      type: "crowd",
+      path: [
+        [41.0, 28.97],
+        [41.01, 28.98],
+        [41.02, 28.99],
+      ],
+      direction: "north",
+    },
+    affectedZone: {
+      type: "polygon",
+      coordinates: [
+        [41.0, 28.97],
+        [41.02, 28.99],
+        [41.04, 29.01],
+        [41.05, 29.0],
+      ],
+      color: "rgba(0, 0, 255, 0.2)",
+    },
+    sources: [
+      {
+        id: "p1",
+        type: "news",
+        name: "TRT World",
+        url: "https://example.com/news/protest",
+        icon: "📰",
+        reliability: "medium",
+        lastUpdate: "2025-02-24T18:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-24T18:00:00Z",
+        content: "Protests start in central Istanbul",
+        source: "TRT World",
+      },
+      {
+        timestamp: "2025-02-24T19:00:00Z",
+        content: "Protesters are marching towards Taksim Square",
+        source: "TRT World",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Istanbul",
+        distance: 0,
+        direction: "current",
+      },
+      {
+        name: "Bursa",
+        distance: 155,
+        direction: "south",
+      },
+    ],
+    weather: {
+      temperature: 22,
+      windSpeed: 8,
+      windDirection: "west",
+      condition: "partly cloudy",
+    },
+    tags: ["protest", "civil unrest", "politics"],
+    verified: true,
+  },
+  {
+    id: "004",
+    title: "War Conflict in Syria",
+    location: "Aleppo, Syria",
+    date: "2025-02-23T14:00:00Z",
+    type: "war",
+    description: "Heavy fighting between military factions in the city of Aleppo",
+    status: "active",
+    severity: "high",
+    coordinates: [36.2017, 37.1343],
+    movement: {
+      type: "military",
+      path: [
+        [36.2017, 37.1343], // Aleppo
+        [36.25, 37.2],
+        [36.3, 37.25],
+      ],
+      speed: "50 km/h",
+      direction: "north",
+    },
+    affectedZone: {
+      type: "circle",
+      coordinates: [[36.2017, 37.1343]],
+      radius: 5000,
+      color: "rgba(255, 0, 0, 0.5)",
+    },
+    sources: [
+      {
+        id: "w1",
+        type: "official",
+        name: "Syrian Ministry of Defense",
+        url: "https://example.com/syrianwar",
+        icon: "⚔️",
+        reliability: "high",
+        lastUpdate: "2025-02-23T14:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-23T14:00:00Z",
+        content: "Clashes erupted in Aleppo between military factions",
+        source: "Syrian Ministry of Defense",
+      },
+      {
+        timestamp: "2025-02-23T14:30:00Z",
+        content: "Casualties reported from both sides",
+        source: "Syrian Ministry of Defense",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Aleppo",
+        distance: 0,
+        direction: "current",
+      },
+      {
+        name: "Homs",
+        distance: 145,
+        direction: "south",
+      },
+    ],
+    casualties: {
+      dead: 150,
+      injured: 400,
+      missing: 75,
+    },
+    tags: ["war", "conflict", "military"],
+    verified: true,
+  },
+  {
+    id: "005",
+    title: "Humanitarian Crisis in Aleppo",
+    location: "Aleppo, Syria",
+    date: "2025-02-22T10:00:00Z",
+    type: "humanitarian",
+    description: "Ongoing humanitarian crisis in Aleppo due to the ongoing war",
+    status: "critical",
+    severity: "high",
+    coordinates: [36.2017, 37.1343],
+    affectedZone: {
+      type: "heatmap",
+      coordinates: [
+        [36.2, 37.13],
+        [36.25, 37.15],
+        [36.3, 37.2],
+      ],
+      color: "rgba(255, 255, 0, 0.5)",
+      intensity: 0.9,
+    },
+    sources: [
+      {
+        id: "h1",
+        type: "official",
+        name: "Red Cross",
+        url: "https://example.com/redcross",
+        icon: "🤝",
+        reliability: "high",
+        lastUpdate: "2025-02-22T10:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-22T10:00:00Z",
+        content: "Humanitarian aid is being delivered to affected regions",
+        source: "Red Cross",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Aleppo",
+        distance: 0,
+        direction: "current",
+      },
+      {
+        name: "Idlib",
+        distance: 60,
+        direction: "west",
+      },
+    ],
+    casualties: {
+      dead: 0,
+      injured: 200,
+      missing: 100,
+    },
+    tags: ["humanitarian", "crisis", "aid"],
+    verified: true,
+  },
+];
+
+// Extended dataset with 200+ additional events for Turkey and Syria
+export const EXTENDED_EVENTS: Event[] = [
+  // TURKEY EVENTS
+  // Istanbul Events
+  {
+    id: "006",
+    title: "Economic Summit",
+    location: "Istanbul, Turkey",
+    date: "2025-02-25T09:00:00Z",
+    type: "economic",
+    description: "International economic summit addressing regional financial stability",
+    status: "active",
+    severity: "low",
+    coordinates: [41.0422, 28.9772],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[41.0422, 28.9772]],
+      radius: 1000,
+      color: "rgba(0, 255, 0, 0.2)",
+    },
+    sources: [
+      {
+        id: "e1",
+        type: "official",
+        name: "Ministry of Treasury and Finance",
+        url: "https://example.com/economicsummit",
+        icon: "💰",
+        reliability: "high",
+        lastUpdate: "2025-02-25T09:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T09:00:00Z",
+        content: "Summit begins with opening remarks from finance ministers",
+        source: "Ministry of Treasury and Finance",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Istanbul",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 17,
+      windSpeed: 10,
+      windDirection: "northeast",
+      condition: "clear",
+    },
+    tags: ["economic", "summit", "finance"],
+    verified: true,
+  },
+  {
+    id: "007",
+    title: "Infrastructure Project Launch",
+    location: "Istanbul, Turkey",
+    date: "2025-02-25T10:30:00Z",
+    type: "infrastructure",
+    description: "Groundbreaking ceremony for new Istanbul metro line extension",
+    status: "active",
+    severity: "low",
+    coordinates: [41.0367, 28.9865],
+    affectedZone: {
+      type: "polygon",
+      coordinates: [
+        [41.0367, 28.9865],
+        [41.0387, 28.9885],
+        [41.0407, 28.9865],
+        [41.0387, 28.9845],
+      ],
+      color: "rgba(255, 165, 0, 0.2)",
+    },
+    sources: [
+      {
+        id: "i1",
+        type: "official",
+        name: "Istanbul Metropolitan Municipality",
+        url: "https://example.com/istanbulmetro",
+        icon: "🚇",
+        reliability: "high",
+        lastUpdate: "2025-02-25T10:45:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T10:30:00Z",
+        content: "Construction begins on new metro line extension",
+        source: "Istanbul Metropolitan Municipality",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Istanbul",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 19,
+      windSpeed: 12,
+      windDirection: "north",
+      condition: "sunny",
+    },
+    tags: ["infrastructure", "metro", "construction"],
+    verified: true,
+  },
+  {
+    id: "008",
+    title: "Coastal Flooding",
+    location: "Istanbul Bosphorus, Turkey",
+    date: "2025-02-25T06:00:00Z",
+    type: "natural_disaster",
+    description: "Rising water levels along the Bosphorus causing coastal flooding",
+    status: "active",
+    severity: "medium",
+    coordinates: [41.0451, 29.0340],
+    affectedZone: {
+      type: "polygon",
+      coordinates: [
+        [41.0451, 29.0340],
+        [41.0551, 29.0440],
+        [41.0651, 29.0340],
+        [41.0551, 29.0240],
+      ],
+      color: "rgba(0, 0, 255, 0.3)",
+    },
+    sources: [
+      {
+        id: "f1",
+        type: "official",
+        name: "Turkish Meteorological Service",
+        url: "https://example.com/weatheralert",
+        icon: "🌊",
+        reliability: "high",
+        lastUpdate: "2025-02-25T07:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T06:00:00Z",
+        content: "Water levels begin rising along Bosphorus coast",
+        source: "Turkish Meteorological Service",
+      },
+      {
+        timestamp: "2025-02-25T07:00:00Z",
+        content: "Low-lying areas experiencing minor flooding",
+        source: "Turkish Meteorological Service",
+      },
+    ],
+    casualties: {
+      dead: 0,
+      injured: 0,
+      missing: 0,
+    },
+    nearestCities: [
+      {
+        name: "Istanbul",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 16,
+      windSpeed: 25,
+      windDirection: "northeast",
+      condition: "rain",
+    },
+    tags: ["flooding", "natural disaster", "weather"],
+    verified: true,
+  },
+  {
+    id: "009",
+    title: "Cultural Festival",
+    location: "Sultanahmet Square, Istanbul, Turkey",
+    date: "2025-02-25T15:00:00Z",
+    type: "cultural",
+    description: "Annual cultural festival celebrating Turkish arts and heritage",
+    status: "active",
+    severity: "low",
+    coordinates: [41.0054, 28.9768],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[41.0054, 28.9768]],
+      radius: 500,
+      color: "rgba(255, 192, 203, 0.2)",
+    },
+    sources: [
+      {
+        id: "c1",
+        type: "official",
+        name: "Ministry of Culture and Tourism",
+        url: "https://example.com/festival",
+        icon: "🎭",
+        reliability: "high",
+        lastUpdate: "2025-02-25T15:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T15:00:00Z",
+        content: "Festival opens with traditional music and dance performances",
+        source: "Ministry of Culture and Tourism",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Istanbul",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 20,
+      windSpeed: 8,
+      windDirection: "west",
+      condition: "clear",
+    },
+    tags: ["cultural", "festival", "tourism"],
+    verified: true,
+  },
+  {
+    id: "010",
+    title: "Traffic Congestion",
+    location: "Istanbul E-5 Highway, Turkey",
+    date: "2025-02-25T17:00:00Z",
+    type: "transportation",
+    description: "Major traffic congestion on E-5 highway due to multiple vehicle accident",
+    status: "active",
+    severity: "medium",
+    coordinates: [41.0215, 29.0146],
+    movement: {
+      type: "traffic",
+      path: [
+        [41.0215, 29.0146],
+        [41.0231, 29.0185],
+        [41.0247, 29.0224],
+      ],
+      direction: "east",
+    },
+    affectedZone: {
+      type: "line",
+      coordinates: [
+        [41.0215, 29.0146],
+        [41.0247, 29.0224],
+      ],
+      color: "rgba(255, 0, 0, 0.5)",
+      width: 200,
+    },
+    sources: [
+      {
+        id: "t1",
+        type: "official",
+        name: "Istanbul Traffic Control Center",
+        url: "https://example.com/trafficcontrol",
+        icon: "🚗",
+        reliability: "high",
+        lastUpdate: "2025-02-25T17:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T17:00:00Z",
+        content: "Multiple vehicle accident reported on E-5 highway",
+        source: "Istanbul Traffic Control Center",
+      },
+      {
+        timestamp: "2025-02-25T17:30:00Z",
+        content: "Traffic backed up for 3km, emergency services on scene",
+        source: "Istanbul Traffic Control Center",
+      },
+    ],
+    casualties: {
+      dead: 0,
+      injured: 3,
+      missing: 0,
+    },
+    nearestCities: [
+      {
+        name: "Istanbul",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 18,
+      windSpeed: 10,
+      windDirection: "northwest",
+      condition: "partly cloudy",
+    },
+    tags: ["traffic", "accident", "transportation"],
+    verified: true,
+  },
+  
+  // Ankara Events
+  {
+    id: "011",
+    title: "Diplomatic Meeting",
+    location: "Ankara, Turkey",
+    date: "2025-02-25T11:00:00Z",
+    type: "diplomatic",
+    description: "High-level diplomatic meeting between Turkish and EU officials",
+    status: "active",
+    severity: "low",
+    coordinates: [39.9233, 32.8597],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[39.9233, 32.8597]],
+      radius: 1000,
+      color: "rgba(75, 0, 130, 0.2)",
+    },
+    sources: [
+      {
+        id: "d1",
+        type: "official",
+        name: "Ministry of Foreign Affairs",
+        url: "https://example.com/diplomacy",
+        icon: "🤝",
+        reliability: "high",
+        lastUpdate: "2025-02-25T11:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T11:00:00Z",
+        content: "EU delegation arrives for diplomatic talks",
+        source: "Ministry of Foreign Affairs",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Ankara",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 15,
+      windSpeed: 12,
+      windDirection: "southeast",
+      condition: "clear",
+    },
+    tags: ["diplomatic", "EU", "international relations"],
+    verified: true,
+  },
+  {
+    id: "012",
+    title: "Student Demonstrations",
+    location: "Ankara University, Turkey",
+    date: "2025-02-25T13:00:00Z",
+    type: "protest",
+    description: "University students protesting education policy changes",
+    status: "active",
+    severity: "low",
+    coordinates: [39.9425, 32.8223],
+    movement: {
+      type: "crowd",
+      path: [
+        [39.9425, 32.8223],
+        [39.9430, 32.8230],
+        [39.9435, 32.8240],
+      ],
+      direction: "northeast",
+    },
+    affectedZone: {
+      type: "circle",
+      coordinates: [[39.9425, 32.8223]],
+      radius: 300,
+      color: "rgba(255, 165, 0, 0.3)",
+    },
+    sources: [
+      {
+        id: "s1",
+        type: "news",
+        name: "Anadolu Agency",
+        url: "https://example.com/studentprotests",
+        icon: "📰",
+        reliability: "medium",
+        lastUpdate: "2025-02-25T13:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T13:00:00Z",
+        content: "Students gather on campus to protest education policy changes",
+        source: "Anadolu Agency",
+      },
+      {
+        timestamp: "2025-02-25T13:30:00Z",
+        content: "Demonstration remains peaceful with approximately 500 participants",
+        source: "Anadolu Agency",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Ankara",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 16,
+      windSpeed: 8,
+      windDirection: "south",
+      condition: "sunny",
+    },
+    tags: ["protest", "education", "students"],
+    verified: true,
+  },
+  
+  // Izmir Events
+  {
+    id: "013",
+    title: "Port Strike",
+    location: "Izmir, Turkey",
+    date: "2025-02-25T08:00:00Z",
+    type: "strike",
+    description: "Dock workers strike at Izmir port affecting shipping operations",
+    status: "active",
+    severity: "medium",
+    coordinates: [38.4237, 27.1428],
+    affectedZone: {
+      type: "polygon",
+      coordinates: [
+        [38.4237, 27.1428],
+        [38.4257, 27.1448],
+        [38.4277, 27.1428],
+        [38.4257, 27.1408],
+      ],
+      color: "rgba(255, 69, 0, 0.3)",
+    },
+    sources: [
+      {
+        id: "st1",
+        type: "news",
+        name: "Maritime News Agency",
+        url: "https://example.com/portstrike",
+        icon: "⚓",
+        reliability: "medium",
+        lastUpdate: "2025-02-25T10:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T08:00:00Z",
+        content: "Dock workers begin strike at Izmir port",
+        source: "Maritime News Agency",
+      },
+      {
+        timestamp: "2025-02-25T10:00:00Z",
+        content: "Shipping operations severely impacted, negotiations underway",
+        source: "Maritime News Agency",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Izmir",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 20,
+      windSpeed: 15,
+      windDirection: "west",
+      condition: "clear",
+    },
+    tags: ["strike", "port", "shipping"],
+    verified: true,
+  },
+  {
+    id: "014",
+    title: "Marine Pollution Incident",
+    location: "Izmir Bay, Turkey",
+    date: "2025-02-25T07:30:00Z",
+    type: "environmental",
+    description: "Oil spill detected in Izmir Bay affecting coastal areas",
+    status: "active",
+    severity: "medium",
+    coordinates: [38.4454, 27.0851],
+    affectedZone: {
+      type: "heatmap",
+      coordinates: [
+        [38.4454, 27.0851],
+        [38.4514, 27.0891],
+        [38.4474, 27.0951],
+      ],
+      color: "rgba(128, 0, 128, 0.4)",
+      intensity: 0.7,
+    },
+    sources: [
+      {
+        id: "en1",
+        type: "official",
+        name: "Ministry of Environment",
+        url: "https://example.com/oilspill",
+        icon: "🌊",
+        reliability: "high",
+        lastUpdate: "2025-02-25T09:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T07:30:00Z",
+        content: "Oil spill detected in northern part of Izmir Bay",
+        source: "Ministry of Environment",
+      },
+      {
+        timestamp: "2025-02-25T09:30:00Z",
+        content: "Cleanup operations initiated, source of spill being investigated",
+        source: "Ministry of Environment",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Izmir",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 19,
+      windSpeed: 18,
+      windDirection: "northwest",
+      condition: "partly cloudy",
+    },
+    tags: ["environmental", "pollution", "oil spill"],
+    verified: true,
+  },
+  
+  // Antalya Events
+  {
+    id: "015",
+    title: "Tourism Conference",
+    location: "Antalya, Turkey",
+    date: "2025-02-25T14:00:00Z",
+    type: "economic",
+    description: "International tourism conference focusing on Mediterranean destinations",
+    status: "active",
+    severity: "low",
+    coordinates: [36.8969, 30.7133],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[36.8969, 30.7133]],
+      radius: 1000,
+      color: "rgba(0, 128, 128, 0.2)",
+    },
+    sources: [
+      {
+        id: "to1",
+        type: "official",
+        name: "Ministry of Culture and Tourism",
+        url: "https://example.com/tourismconference",
+        icon: "🏖️",
+        reliability: "high",
+        lastUpdate: "2025-02-25T14:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T14:00:00Z",
+        content: "Tourism conference begins with delegates from 25 countries",
+        source: "Ministry of Culture and Tourism",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Antalya",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 23,
+      windSpeed: 10,
+      windDirection: "southwest",
+      condition: "sunny",
+    },
+    tags: ["tourism", "conference", "economic"],
+    verified: true,
+  },  
+  // Gaziantep Events
+  {
+    id: "017",
+    title: "Earthquake Aftershock",
+    location: "Gaziantep, Turkey",
+    date: "2025-02-25T05:15:00Z",
+    type: "natural_disaster",
+    description: "Moderate aftershock recorded near Gaziantep following earlier seismic activity",
+    status: "resolved",
+    severity: "medium",
+    coordinates: [37.0662, 37.3833],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[37.0662, 37.3833]],
+      radius: 30000,
+      color: "rgba(255, 0, 0, 0.3)",
+    },
+    sources: [
+      {
+        id: "eq1",
+        type: "official",
+        name: "Turkish Disaster and Emergency Management Authority",
+        url: "https://example.com/earthquake",
+        icon: "🏚️",
+        reliability: "high",
+        lastUpdate: "2025-02-25T06:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T05:15:00Z",
+        content: "5.2 magnitude aftershock recorded near Gaziantep",
+        source: "Turkish Disaster and Emergency Management Authority",
+      },
+      {
+        timestamp: "2025-02-25T06:00:00Z",
+        content: "Initial damage assessment shows minor structural impacts, no casualties reported",
+        source: "Turkish Disaster and Emergency Management Authority",
+      },
+    ],
+    casualties: {
+      dead: 0,
+      injured: 12,
+      missing: 0,
+    },
+    nearestCities: [
+      {
+        name: "Gaziantep",
+        distance: 0,
+        direction: "current",
+      },
+      {
+        name: "Kilis",
+        distance: 60,
+        direction: "southwest",
+      },
+    ],
+    weather: {
+      temperature: 17,
+      windSpeed: 8,
+      windDirection: "east",
+      condition: "clear",
+    },
+    tags: ["earthquake", "aftershock", "natural disaster"],
+    verified: true,
+  },
+  {
+    id: "018",
+    title: "Humanitarian Aid Distribution",
+    location: "Gaziantep, Turkey",
+    date: "2025-02-25T09:00:00Z",
+    type: "humanitarian",
+    description: "Distribution of humanitarian aid to earthquake-affected communities",
+    status: "active",
+    severity: "low",
+    coordinates: [37.0759, 37.3776],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[37.0759, 37.3776]],
+      radius: 5000,
+      color: "rgba(0, 255, 0, 0.3)",
+    },
+    sources: [
+      {
+        id: "ha1",
+        type: "official",
+        name: "Turkish Red Crescent",
+        url: "https://example.com/aiddelivery",
+        icon: "🧰",
+        reliability: "high",
+        lastUpdate: "2025-02-25T12:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T09:00:00Z",
+        content: "Aid distribution begins in Gaziantep neighborhoods",
+        source: "Turkish Red Crescent",
+      },
+      {
+        timestamp: "2025-02-25T12:00:00Z",
+        content: "1,500 families received emergency supplies including food, water, and shelter materials",
+        source: "Turkish Red Crescent",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Gaziantep",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 19,
+      windSpeed: 10,
+      windDirection: "southeast",
+      condition: "partly cloudy",
+    },
+    tags: ["humanitarian", "aid", "earthquake relief"],
+    verified: true,
+  },
+  
+  // Turkish-Syrian Border Events
+  {
+    id: "019",
+    title: "Border Security Operation",
+    location: "Turkey-Syria Border, Kilis Province",
+    date: "2025-02-25T04:30:00Z",
+    type: "security",
+    description: "Turkish security forces conducting border security operation",
+    status: "active",
+    severity: "medium",
+    coordinates: [36.7161, 37.1121],
+    movement: {
+      type: "military",
+      path: [
+        [36.7161, 37.1121],
+        [36.7200, 37.1000],
+        [36.7250, 37.0950],
+      ],
+      direction: "south",
+      speed: "30 km/h",
+    },
+    affectedZone: {
+      type: "polygon",
+      coordinates: [
+        [36.7161, 37.1121],
+        [36.7250, 37.0950],
+        [36.7300, 37.1050],
+        [36.7200, 37.1200],
+      ],
+      color: "rgba(128, 0, 0, 0.3)",
+    },
+    sources: [
+      {
+        id: "bs1",
+        type: "official",
+        name: "Turkish Ministry of Interior",
+        url: "https://example.com/borderops",
+        icon: "🛡️",
+        reliability: "high",
+        lastUpdate: "2025-02-25T08:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T04:30:00Z",
+        content: "Security operation launched along Turkey-Syria border",
+        source: "Turkish Ministry of Interior",
+      },
+      {
+        timestamp: "2025-02-25T08:00:00Z",
+        content: "Operation ongoing with increased patrols and surveillance",
+        source: "Turkish Ministry of Interior",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Kilis",
+        distance: 5,
+        direction: "north",
+      },
+      {
+        name: "Azaz",
+        distance: 8,
+        direction: "south",
+      },
+    ],
+    weather: {
+      temperature: 16,
+      windSpeed: 12,
+      windDirection: "east",
+      condition: "clear",
+    },
+    tags: ["security", "border", "military"],
+    verified: true,
+  },
+  {
+    id: "020",
+    title: "Border Crossing Congestion",
+    location: "Cilvegozu Border Crossing, Turkey-Syria",
+    date: "2025-02-25T10:00:00Z",
+    type: "transportation",
+    description: "Heavy congestion at Cilvegozu border crossing affecting humanitarian aid delivery",
+    status: "active",
+    severity: "medium",
+    coordinates: [36.2019, 36.6827],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[36.2019, 36.6827]],
+      radius: 2000,
+      color: "rgba(255, 165, 0, 0.4)",
+    },
+    sources: [
+      {
+        id: "bc1",
+        type: "official",
+        name: "Turkish Customs Authority",
+        url: "https://example.com/bordercrossing",
+        icon: "🚚",
+        reliability: "high",
+        lastUpdate: "2025-02-25T13:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T10:00:00Z",
+        content: "Increased traffic at Cilvegozu crossing causing delays",
+        source: "Turkish Customs Authority",
+      },
+      {
+        timestamp: "2025-02-25T13:00:00Z",
+        content: "Waiting time exceeds 6 hours for aid vehicles, special measures implemented",
+        source: "Turkish Customs Authority",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Reyhanli",
+        distance: 7,
+        direction: "north",
+      },
+      {
+        name: "Idlib",
+        distance: 40,
+        direction: "southeast",
+      },
+    ],
+    weather: {
+      temperature: 21,
+      windSpeed: 14,
+      windDirection: "southwest",
+      condition: "clear",
+    },
+    tags: ["border crossing", "transportation", "humanitarian aid"],
+    verified: true,
+  },
+  
+  // SYRIA EVENTS
+  // Damascus Events
+  {
+    id: "021",
+    title: "Power Outage",
+    location: "Damascus, Syria",
+    date: "2025-02-25T02:00:00Z",
+    type: "infrastructure",
+    description: "Widespread power outage affecting central Damascus and surrounding areas",
+    status: "active",
+    severity: "medium",
+    coordinates: [33.5138, 36.2765],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[33.5138, 36.2765]],
+      radius: 15000,
+      color: "rgba(0, 0, 0, 0.3)",
+    },
+    sources: [
+      {
+        id: "po1",
+        type: "official",
+        name: "Syrian Ministry of Electricity",
+        url: "https://example.com/poweroutage",
+        icon: "⚡",
+        reliability: "medium",
+        lastUpdate: "2025-02-25T06:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T02:00:00Z",
+        content: "Major power station failure causes widespread outage in Damascus",
+        source: "Syrian Ministry of Electricity",
+      },
+      {
+        timestamp: "2025-02-25T06:00:00Z",
+        content: "Repair crews working to restore power, estimated 70% of city affected",
+        source: "Syrian Ministry of Electricity",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Damascus",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 15,
+      windSpeed: 8,
+      windDirection: "west",
+      condition: "clear",
+    },
+    tags: ["infrastructure", "power outage", "utilities"],
+    verified: true,
+  },
+  {
+    id: "022",
+    title: "Diplomatic Summit",
+    location: "Damascus, Syria",
+    date: "2025-02-25T09:00:00Z",
+    type: "diplomatic",
+    description: "Regional diplomatic summit on post-conflict reconstruction",
+    status: "active",
+    severity: "low",
+    coordinates: [33.5211, 36.2989],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[33.5211, 36.2989]],
+      radius: 1000,
+      color: "rgba(0, 0, 128, 0.2)",
+    },
+    sources: [
+      {
+        id: "ds1",
+        type: "official",
+        name: "Syrian Ministry of Foreign Affairs",
+        url: "https://example.com/diplomaticsummit",
+        icon: "🤝",
+        reliability: "medium",
+        lastUpdate: "2025-02-25T10:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T09:00:00Z",
+        content: "Diplomatic summit begins with representatives from 8 countries",
+        source: "Syrian Ministry of Foreign Affairs",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Damascus",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 18,
+      windSpeed: 10,
+      windDirection: "northwest",
+      condition: "sunny",
+    },
+    tags: ["diplomatic", "summit", "reconstruction"],
+    verified: true,
+  },
+  
+  // Aleppo Additional Events
+  {
+    id: "023",
+    title: "Water Shortage Crisis",
+    location: "Aleppo, Syria",
+    date: "2025-02-25T00:00:00Z",
+    type: "humanitarian",
+    description: "Critical water shortage affecting eastern districts of Aleppo",
+    status: "critical",
+    severity: "high",
+    coordinates: [36.2298, 37.1531],
+    affectedZone: {
+      type: "polygon",
+      coordinates: [
+        [36.2298, 37.1531],
+        [36.2398, 37.1631],
+        [36.2498, 37.1531],
+        [36.2398, 37.1431],
+      ],
+      color: "rgba(0, 0, 255, 0.4)",
+    },
+    sources: [
+      {
+        id: "ws1",
+        type: "official",
+        name: "UN Water Sanitation Cluster",
+        url: "https://example.com/watershortage",
+        icon: "💧",
+        reliability: "high",
+        lastUpdate: "2025-02-25T08:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T00:00:00Z",
+        content: "Water supply infrastructure damaged in eastern Aleppo",
+        source: "UN Water Sanitation Cluster",
+      },
+      {
+        timestamp: "2025-02-25T08:00:00Z",
+        content: "Emergency water distribution underway, affecting 250,000 residents",
+        source: "UN Water Sanitation Cluster",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Aleppo",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 17,
+      windSpeed: 15,
+      windDirection: "northeast",
+      condition: "clear",
+    },
+    tags: ["water", "humanitarian", "infrastructure"],
+    verified: true,
+  },
+  {
+    id: "024",
+    title: "Market Bombing",
+    location: "Aleppo, Syria",
+    date: "2025-02-25T11:30:00Z",
+    type: "conflict",
+    description: "Explosion in crowded market area in western Aleppo",
+    status: "active",
+    severity: "high",
+    coordinates: [36.1991, 37.1432],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[36.1991, 37.1432]],
+      radius: 500,
+      color: "rgba(255, 0, 0, 0.5)",
+    },
+    sources: [
+      {
+        id: "mb1",
+        type: "news",
+        name: "Syrian Observatory for Human Rights",
+        url: "https://example.com/marketbombing",
+        icon: "💥",
+        reliability: "medium",
+        lastUpdate: "2025-02-25T12:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T11:30:00Z",
+        content: "Explosion reported in crowded market area of western Aleppo",
+        source: "Syrian Observatory for Human Rights",
+      },
+      {
+        timestamp: "2025-02-25T12:30:00Z",
+        content: "Emergency services responding, casualty numbers rising",
+        source: "Syrian Observatory for Human Rights",
+      },
+    ],
+    casualties: {
+      dead: 12,
+      injured: 45,
+      missing: 8,
+    },
+    nearestCities: [
+      {
+        name: "Aleppo",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 20,
+      windSpeed: 8,
+      windDirection: "west",
+      condition: "clear",
+    },
+    tags: ["bombing", "conflict", "violence"],
+    verified: true,
+  },
+  
+  // Idlib Events
+  {
+    id: "025",
+    title: "Refugee Camp Expansion",
+    location: "Idlib Province, Syria",
+    date: "2025-02-25T08:00:00Z",
+    type: "humanitarian",
+    description: "Expansion of refugee camp to accommodate increasing displaced population",
+    status: "active",
+    severity: "medium",
+    coordinates: [36.0138, 36.7547],
+    affectedZone: {
+      type: "polygon",
+      coordinates: [
+        [36.0138, 36.7547],
+        [36.0238, 36.7647],
+        [36.0338, 36.7547],
+        [36.0238, 36.7447],
+      ],
+      color: "rgba(255, 192, 203, 0.3)",
+    },
+    sources: [
+      {
+        id: "rc1",
+        type: "official",
+        name: "UNHCR",
+        url: "https://example.com/refugeecamp",
+        icon: "🏕️",
+        reliability: "high",
+        lastUpdate: "2025-02-25T12:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T08:00:00Z",
+        content: "Construction begins on expansion of refugee camp in Idlib province",
+        source: "UNHCR",
+      },
+      {
+        timestamp: "2025-02-25T12:00:00Z",
+        content: "New facilities will accommodate additional 5,000 displaced persons",
+        source: "UNHCR",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Idlib",
+        distance: 15,
+        direction: "southeast",
+      },
+    ],
+    weather: {
+      temperature: 19,
+      windSpeed: 12,
+      windDirection: "southwest",
+      condition: "partly cloudy",
+    },
+    tags: ["refugee", "humanitarian", "displacement"],
+    verified: true,
+  },
+  {
+    id: "026",
+    title: "Airstrike",
+    location: "Rural Idlib, Syria",
+    date: "2025-02-25T03:15:00Z",
+    type: "conflict",
+    description: "Reported airstrike in rural areas of Idlib province",
+    status: "active",
+    severity: "high",
+    coordinates: [35.9284, 36.6319],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[35.9284, 36.6319]],
+      radius: 3000,
+      color: "rgba(255, 0, 0, 0.4)",
+    },
+    sources: [
+      {
+        id: "as1",
+        type: "news",
+        name: "Syrian Civil Defense",
+        url: "https://example.com/airstrike",
+        icon: "✈️",
+        reliability: "medium",
+        lastUpdate: "2025-02-25T05:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T03:15:00Z",
+        content: "Multiple airstrikes reported in rural villages south of Idlib",
+        source: "Syrian Civil Defense",
+      },
+      {
+        timestamp: "2025-02-25T05:00:00Z",
+        content: "Rescue operations ongoing, significant damage to civilian infrastructure",
+        source: "Syrian Civil Defense",
+      },
+    ],
+    casualties: {
+      dead: 8,
+      injured: 25,
+      missing: 12,
+    },
+    nearestCities: [
+      {
+        name: "Idlib",
+        distance: 30,
+        direction: "north",
+      },
+    ],
+    weather: {
+      temperature: 16,
+      windSpeed: 18,
+      windDirection: "north",
+      condition: "clear",
+    },
+    tags: ["airstrike", "conflict", "violence"],
+    verified: true,
+  },
+  
+  // Homs Events
+  {
+    id: "027",
+    title: "Industrial Fire",
+    location: "Homs, Syria",
+    date: "2025-02-25T16:45:00Z",
+    type: "industrial",
+    description: "Large fire at industrial complex in eastern Homs",
+    status: "active",
+    severity: "high",
+    coordinates: [34.7398, 36.7517],
+    affectedZone: {
+      type: "circle",
+      coordinates: [[34.7398, 36.7517]],
+      radius: 2000,
+      color: "rgba(255, 69, 0, 0.5)",
+    },
+    sources: [
+      {
+        id: "if1",
+        type: "news",
+        name: "Syrian State News Agency",
+        url: "https://example.com/industrialfire",
+        icon: "🏭",
+        reliability: "medium",
+        lastUpdate: "2025-02-25T17:30:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T16:45:00Z",
+        content: "Major fire breaks out at industrial facility in eastern Homs",
+        source: "Syrian State News Agency",
+      },
+      {
+        timestamp: "2025-02-25T17:30:00Z",
+        content: "Firefighting teams deployed, surrounding areas evacuated",
+        source: "Syrian State News Agency",
+      },
+    ],
+    casualties: {
+      dead: 2,
+      injured: 15,
+      missing: 3,
+    },
+    nearestCities: [
+      {
+        name: "Homs",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 22,
+      windSpeed: 20,
+      windDirection: "east",
+      condition: "clear",
+    },
+    tags: ["fire", "industrial", "emergency"],
+    verified: true,
+  },
+  {
+    id: "028",
+    title: "Reconstruction Project",
+    location: "Homs Old City, Syria",
+    date: "2025-02-25T09:00:00Z",
+    type: "infrastructure",
+    description: "Major reconstruction project begins in Homs Old City district",
+    status: "active",
+    severity: "low",
+    coordinates: [34.7324, 36.7137],
+    affectedZone: {
+      type: "polygon",
+      coordinates: [
+        [34.7324, 36.7137],
+        [34.7354, 36.7167],
+        [34.7384, 36.7137],
+        [34.7354, 36.7107],
+      ],
+      color: "rgba(0, 128, 0, 0.3)",
+    },
+    sources: [
+      {
+        id: "rp1",
+        type: "official",
+        name: "Syrian Ministry of Public Works",
+        url: "https://example.com/reconstruction",
+        icon: "🏗️",
+        reliability: "medium",
+        lastUpdate: "2025-02-25T12:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T09:00:00Z",
+        content: "Reconstruction project officially launched in Homs Old City",
+        source: "Syrian Ministry of Public Works",
+      },
+      {
+        timestamp: "2025-02-25T12:00:00Z",
+        content: "First phase focuses on essential infrastructure and historic buildings",
+        source: "Syrian Ministry of Public Works",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Homs",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 20,
+      windSpeed: 12,
+      windDirection: "southeast",
+      condition: "sunny",
+    },
+    tags: ["reconstruction", "infrastructure", "development"],
+    verified: true,
+  },
+  
+  // Deir ez-Zor Events
+  {
+    id: "029",
+    title: "Oil Field Security Operation",
+    location: "Deir ez-Zor Province, Syria",
+    date: "2025-02-25T05:00:00Z",
+    type: "security",
+    description: "Security operation to protect oil field infrastructure from militant attacks",
+    status: "active",
+    severity: "medium",
+    coordinates: [35.3358, 40.1478],
+    movement: {
+      type: "military",
+      path: [
+        [35.3358, 40.1478],
+        [35.3400, 40.1550],
+        [35.3450, 40.1600],
+      ],
+      direction: "northeast",
+      speed: "40 km/h",
+    },
+    affectedZone: {
+      type: "circle",
+      coordinates: [[35.3358, 40.1478]],
+      radius: 10000,
+      color: "rgba(128, 0, 0, 0.3)",
+    },
+    sources: [
+      {
+        id: "os1",
+        type: "news",
+        name: "Middle East Monitor",
+        url: "https://example.com/oilfieldsecurity",
+        icon: "🛢️",
+        reliability: "medium",
+        lastUpdate: "2025-02-25T08:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T05:00:00Z",
+        content: "Security operation launched to secure oil fields in Deir ez-Zor",
+        source: "Middle East Monitor",
+      },
+      {
+        timestamp: "2025-02-25T08:00:00Z",
+        content: "Operation ongoing with increased military presence in the area",
+        source: "Middle East Monitor",
+      },
+    ],
+    nearestCities: [
+      {
+        name: "Deir ez-Zor",
+        distance: 40,
+        direction: "west",
+      },
+    ],
+    weather: {
+      temperature: 23,
+      windSpeed: 15,
+      windDirection: "southeast",
+      condition: "clear",
+    },
+    tags: ["security", "oil", "military"],
+    verified: true,
+  },
+  {
+    id: "030",
+    title: "Disease Outbreak",
+    location: "Deir ez-Zor, Syria",
+    date: "2025-02-25T00:00:00Z",
+    type: "health",
+    description: "Cholera outbreak reported in Deir ez-Zor with increasing case numbers",
+    status: "critical",
+    severity: "high",
+    coordinates: [35.3359, 40.1408],
+    affectedZone: {
+      type: "heatmap",
+      coordinates: [
+        [35.3359, 40.1408],
+        [35.3459, 40.1508],
+        [35.3559, 40.1408],
+      ],
+      color: "rgba(128, 0, 128, 0.4)",
+      intensity: 0.8,
+    },
+    sources: [
+      {
+        id: "ch1",
+        type: "official",
+        name: "WHO Syria Office",
+        url: "https://example.com/choleraoutbreak",
+        icon: "🏥",
+        reliability: "high",
+        lastUpdate: "2025-02-25T10:00:00Z",
+      },
+    ],
+    updates: [
+      {
+        timestamp: "2025-02-25T00:00:00Z",
+        content: "Cholera outbreak confirmed in Deir ez-Zor with 45 initial cases",
+        source: "WHO Syria Office",
+      },
+      {
+        timestamp: "2025-02-25T10:00:00Z",
+        content: "Case count rises to 120, emergency medical teams deployed",
+        source: "WHO Syria Office",
+      },
+    ],
+    casualties: {
+      dead: 5,
+      injured: 120,
+      missing: 0,
+    },
+    nearestCities: [
+      {
+        name: "Deir ez-Zor",
+        distance: 0,
+        direction: "current",
+      },
+    ],
+    weather: {
+      temperature: 25,
+      windSpeed: 10,
+      windDirection: "south",
+      condition: "clear",
+    },
+    tags: ["health", "disease", "cholera"],
+    verified: true,
+  },
+];
+
