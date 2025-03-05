@@ -20,7 +20,7 @@
 ## 🇬🇧 English Version 
 
 ### 📌 Overview 
-Lemeye is an advanced real-time event tracking and visualization platform designed to monitor critical events across Turkey and neighboring regions such as Syria. The platform transforms complex data from various sources into an intuitive, interactive map interface, allowing users to track military operations, disease outbreaks, protests, humanitarian crises, and other significant events as they unfold.
+Lemeye is an advanced real-time event tracking and visualization platform designed to monitor critical events across Turkey and neighboring regions such as Syria. The platform transforms complex data from various sources into an intuitive, interactive map interface, allowing users to track disease outbreaks, protests, humanitarian crises, and other significant events as they unfold.
 
 <div align="center">
 
@@ -50,7 +50,6 @@ To provide governments, NGOs, journalists, and the public with real-time, accura
 
 ### 📋 Event Categories
 
-- **🛡️ Military**: Track aircraft movements, troop deployments, and defense operations
 - **🦠 Public Health**: Monitor virus outbreaks, containment zones, and infection spread
 - **👥 Civil Unrest**: Follow protests, demonstrations, and government responses
 - **🚨 Security**: Track terrorist incidents, law enforcement activities, and threats
@@ -172,7 +171,7 @@ See our detailed [Contributing Guidelines](CONTRIBUTING.md) for more information
 ## 🇹🇷 Türkçe Sürüm
 
 ### 📌 Genel Bakış
-Lemeye, Türkiye ve Suriye gibi komşu bölgelerdeki kritik olayları izlemek için tasarlanmış gelişmiş bir gerçek zamanlı olay takip ve görselleştirme platformudur. Platform, çeşitli kaynaklardan gelen karmaşık verileri sezgisel, etkileşimli bir harita arayüzüne dönüştürerek, kullanıcıların askeri operasyonları, hastalık salgınlarını, protestoları, insani krizleri ve diğer önemli olayları gerçekleştikleri anda takip etmelerini sağlar.
+Lemeye, Türkiye ve Suriye gibi komşu bölgelerdeki kritik olayları izlemek için tasarlanmış gelişmiş bir gerçek zamanlı olay takip ve görselleştirme platformudur. Platform, çeşitli kaynaklardan gelen karmaşık verileri sezgisel, etkileşimli bir harita arayüzüne dönüştürerek, kullanıcıların hastalık salgınlarını, protestoları, insani krizleri ve diğer önemli olayları gerçekleştikleri anda takip etmelerini sağlar.
 
 <div align="center">
 
@@ -202,7 +201,6 @@ Hükümetlere, STK'lara, gazetecilere ve halka, kritik olayların gelişmiş co�
 
 ### 📋 Olay Kategorileri
 
-- **🛡️ Askeri**: Uçak hareketlerini, birlik konuşlandırmalarını ve savunma operasyonlarını takip edin
 - **🦠 Halk Sağlığı**: Virüs salgınlarını, karantina bölgelerini ve enfeksiyon yayılımını izleyin
 - **👥 Sivil Huzursuzluk**: Protestoları, gösterileri ve hükümet tepkilerini takip edin
 - **🚨 Güvenlik**: Terör olaylarını, kolluk kuvvetleri faaliyetlerini ve tehditleri izleyin
